@@ -1,8 +1,9 @@
 
-2.2 UserDaoTest  개선
+# 2.2 UserDaoTest 개선
 
-2.2.1 테스트 검증의 자동화
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+### 2.2.1 테스트 검증의 자동화
+
+```java
 if(!user.getName().equals(user2.getName())){
 	System.out.println(“ 테스트 실패 (name)”);
 }
@@ -10,20 +11,22 @@ else if (!user.getPassword().equlas(user2.getPasswowrd())) {
 	System.out.println(“ 테스트 실패 (password)”);
 }
 else{
-	System.out.println(“조회 테스트 성공");
+	System.out.println("조회 테스트 성공");
 }
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-2.2.2 테스트의 효율적인 수행과 결과 관리
-+ main() 메소드의 한계
- - 어플리케이션 규모가 커지고 테스트 개수가 많아지면 테스트 수행에 부담
+```
 
-+ JUnit 테스트로 전환 (자바 테스팅 프레임워크)
-  - main() 메소드 필요 없고, 오브젝트를 만들어서 실행시키는 코드 만들 필요없음 (Ioc)
-  
-+ 테스트 메소드 전환
-  1. 메소드가 public으로 선언
-  2. @Test 애노테이션 붙이기
+### 2.2.2 테스트의 효율적인 수행과 결과 관리
+##### main() 메소드의 한계
+- 어플리케이션 규모가 커지고 테스트 개수가 많아지면 테스트 수행에 부담
 
+##### JUnit 테스트로 전환 (자바 테스팅 프레임워크)
+- main() 메소드 필요 없고, 오브젝트를 만들어서 실행시키는 코드 만들 필요없음 (Ioc)
+
+##### 테스트 메소드 전환
+- 메소드가 public으로 선언
+- @Test 애노테이션 붙이기
+
+```java
 Import static org.hamcrest.CoreMatchers.is;
 Import static org.junit.Assert.assertThat;
 
@@ -49,6 +52,7 @@ Public class UserDaoTest {
 
   }
 }
+```
 
-+ JUnit테스트 실행 
-  - JUnit 은 assertThat()을 이용해 검증을 했을 때 기대한 결과가 아니면 AssertionError발생
+##### JUnit테스트 실행
+- JUnit 은 assertThat()을 이용해 검증을 했을 때 기대한 결과가 아니면 AssertionError발생
